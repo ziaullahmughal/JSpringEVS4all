@@ -48,13 +48,13 @@ public class JFrameUserReg extends javax.swing.JFrame {
         UserGender_F = new javax.swing.JRadioButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        UserDOB = new com.toedter.calendar.JDateChooser();
-        jButton1 = new javax.swing.JButton();
+        JBtnReset = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         emailMsg = new javax.swing.JLabel();
         UserFirstNameMsg = new javax.swing.JLabel();
         UserLastNameMsg = new javax.swing.JLabel();
         UserDOBMsg = new javax.swing.JLabel();
+        UserDOB = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         UserInfo = new javax.swing.JTextArea();
@@ -105,12 +105,10 @@ public class JFrameUserReg extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Date Of Birth :");
 
-        UserDOB.setDateFormatString("dd-MMM-yyyy");
-
-        jButton1.setText("Reset");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JBtnReset.setText("Reset");
+        JBtnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JBtnResetActionPerformed(evt);
             }
         });
 
@@ -136,6 +134,8 @@ public class JFrameUserReg extends javax.swing.JFrame {
         UserDOBMsg.setForeground(new java.awt.Color(255, 0, 0));
         UserDOBMsg.setToolTipText("");
 
+        UserDOB.setMinSelectableDate(new java.util.Date(-2177465209000L));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -144,7 +144,7 @@ public class JFrameUserReg extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(115, 115, 115)
-                        .addComponent(jButton1)
+                        .addComponent(JBtnReset)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -159,17 +159,15 @@ public class JFrameUserReg extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel3))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(UserFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                                        .addComponent(UserLastName))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(UserGender_M)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(UserGender_F))
-                                        .addComponent(UserDOB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(UserEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(UserFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                                    .addComponent(UserLastName)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(UserGender_M)
+                                        .addGap(47, 47, 47)
+                                        .addComponent(UserGender_F))
+                                    .addComponent(UserEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                                    .addComponent(UserDOB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(emailMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,7 +203,7 @@ public class JFrameUserReg extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
                             .addComponent(UserDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -217,15 +215,13 @@ public class JFrameUserReg extends javax.swing.JFrame {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
+                            .addComponent(JBtnReset)
                             .addComponent(jButton2)))
                     .addComponent(UserDOBMsg))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {UserFirstName, UserLastName, jLabel1, jLabel2});
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {UserDOB, jLabel5});
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {UserDOBMsg, UserEmail, UserFirstNameMsg, UserLastNameMsg, emailMsg, jLabel3});
 
@@ -285,14 +281,14 @@ public class JFrameUserReg extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JBtnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnResetActionPerformed
         // TODO add your handling code here:
         UserFirstName.setText("");
         UserLastName.setText("");
         UserDOB.setDate(null);
         UserEmail.setText("");
         UserInfo.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_JBtnResetActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -397,6 +393,7 @@ public class JFrameUserReg extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBtnReset;
     private com.toedter.calendar.JDateChooser UserDOB;
     private javax.swing.JLabel UserDOBMsg;
     private javax.swing.JTextField UserEmail;
@@ -409,7 +406,6 @@ public class JFrameUserReg extends javax.swing.JFrame {
     private javax.swing.JTextField UserLastName;
     private javax.swing.JLabel UserLastNameMsg;
     private javax.swing.JLabel emailMsg;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
