@@ -39,13 +39,15 @@ public class ManipulateNumbers {
             out.println("One (1) find in input values, LCD can not find !");
 
         } else {
-            lcd = get_lcd(Num1, Num2, Num3);
+            //lcd = get_lcd(Num1, Num2, Num3);
+            lcd = getLCD(Num1, Num2, Num3);
         }
 
-        if (lcd == 0) 
+        if (lcd == 0) {
             out.println("LCD not found !");
-        else
-        out.println("LCD = " + lcd);
+        } else {
+            out.println("LCD = " + lcd);
+        }
 
         // Sorting Numbers
         int Sort1, Sort2, Sort3;
@@ -99,7 +101,7 @@ public class ManipulateNumbers {
 
     }
 
-    public static int get_lcd(int input1, int input2, int input3) {
+    /*public static int get_lcd(int input1, int input2, int input3) {
         int divisor = 2, lcd = 0;
 
         while (divisor <= input1) {
@@ -121,5 +123,26 @@ public class ManipulateNumbers {
 
         return lcd;
     }
+*/
+    private static int getLCD(int input1, int input2, int input3) {
+        int returnval = 0, maxval;
+        if (input1 >= input2) {
+            maxval = input1;
+        } else {
+            maxval = input2;
+        }
+        if (input3 >= maxval) {
+            maxval = input3;
+        }
+        maxval++;
+        while (maxval != returnval) {
+            if ((maxval % input1) == 0 && (maxval % input2) == 0 && (maxval % input3) == 0) {
+                returnval = maxval;
+            } else {
+                maxval++;
+            }
+        }
+        return returnval;
 
+    }
 }
