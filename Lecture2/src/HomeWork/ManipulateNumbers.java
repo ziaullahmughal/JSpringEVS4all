@@ -31,7 +31,6 @@ public class ManipulateNumbers {
 
         // Getting LDC
         out.println("\n Finding LCD (Least Common Divisor)");
-        int lcd1 = 0, lcd2 = 0, lcd3 = 0;
         int lcd = 0;
         if (Num1 == 0 || Num2 == 0 || Num3 == 0) {
             out.println("Zero find in input values, LCD can not find !");
@@ -40,18 +39,13 @@ public class ManipulateNumbers {
             out.println("One (1) find in input values, LCD can not find !");
 
         } else {
-            lcd1 = get_lcd(Num1);
-            lcd2 = get_lcd(Num2);
-            lcd3 = get_lcd(Num3);
+            lcd = get_lcd(Num1, Num2, Num3);
         }
 
-        if (lcd1 == 0 && lcd2 == 0 && lcd3 == 0) {
-            out.println("LCD Not Found");
-        } else if (lcd1 == lcd2 && lcd2 == lcd3) {
-            out.println("LCD = " + lcd1);
-        } else {
-            out.println("LCD Not Found");
-        }
+        if (lcd == 0) 
+            out.println("LCD not found !");
+        else
+        out.println("LCD = " + lcd);
 
         // Sorting Numbers
         int Sort1, Sort2, Sort3;
@@ -102,17 +96,27 @@ public class ManipulateNumbers {
         } else {
             out.println(Input + " is a Prime Number");
         }
+
     }
 
-    public static int get_lcd(int input) {
+    public static int get_lcd(int input1, int input2, int input3) {
         int divisor = 2, lcd = 0;
 
-        while (divisor <= 11) {
-            if (input % divisor == 0) {
-                lcd = divisor;
-                break;
+        while (divisor <= input1) {
+            if (input1 % divisor == 0) {
+                if ((divisor <= input2) && ((input2 % divisor) == 0)) {
+                    if (divisor <= input3 && (input3 % divisor) == 0) {
+                        lcd = divisor;
+                        break;
+                    } else {
+                        divisor++;
+                    }
+                } else {
+                    divisor++;
+                }
+            } else {
+                divisor++;
             }
-            divisor++;
         }
 
         return lcd;
