@@ -19,8 +19,8 @@ public class JFrameUserReg extends javax.swing.JFrame {
     /**
      * Creates new form JFrameUserReg
      */
-    public JFrameUserReg() {
-        initComponents();
+    public JFrameUserReg() {        
+        initComponents();        
         UserGender_M.setActionCommand("M");
         UserGender_F.setActionCommand("F");
         UserGender_M.setSelected(true);
@@ -55,6 +55,7 @@ public class JFrameUserReg extends javax.swing.JFrame {
         UserLastNameMsg = new javax.swing.JLabel();
         UserDOBMsg = new javax.swing.JLabel();
         UserDOB = new com.toedter.calendar.JDateChooser();
+        BtnGoMain = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         UserInfo = new javax.swing.JTextArea();
@@ -136,19 +137,27 @@ public class JFrameUserReg extends javax.swing.JFrame {
 
         UserDOB.setMinSelectableDate(new java.util.Date(-2177465209000L));
 
+        BtnGoMain.setText("Main");
+        BtnGoMain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGoMainActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
+                        .addComponent(BtnGoMain)
+                        .addGap(50, 50, 50)
                         .addComponent(JBtnReset)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jSeparator1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -216,7 +225,8 @@ public class JFrameUserReg extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(JBtnReset)
-                            .addComponent(jButton2)))
+                            .addComponent(jButton2)
+                            .addComponent(BtnGoMain)))
                     .addComponent(UserDOBMsg))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
@@ -333,7 +343,7 @@ public class JFrameUserReg extends javax.swing.JFrame {
             }
             UserInfo.setText(UserInfo.getText() + UserFirstName.getText() + " " + UserLastName.getText() + "\n");            
             UserInfo.setText(UserInfo.getText() + "DOB: " + df.format(UserDOB.getDate()) + "\n");            
-            UserInfo.setText(UserInfo.getText() + "email: " + UserEmail.getText());
+            UserInfo.setText(UserInfo.getText() + "email: " + UserEmail.getText());            
             
         }
         
@@ -356,6 +366,11 @@ public class JFrameUserReg extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_UserEmailKeyTyped
+
+    private void BtnGoMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGoMainActionPerformed
+        // TODO add your handling code here:
+        new FirstJFrame().setVisible(true);
+    }//GEN-LAST:event_BtnGoMainActionPerformed
 
     /**
      * @param args the command line arguments
@@ -393,6 +408,7 @@ public class JFrameUserReg extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnGoMain;
     private javax.swing.JButton JBtnReset;
     private com.toedter.calendar.JDateChooser UserDOB;
     private javax.swing.JLabel UserDOBMsg;
