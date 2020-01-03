@@ -10,6 +10,10 @@ package HomeWork;
  * @author zia
  */
 public class ManipulateNum {
+    public static void main(String[] args) {
+        ManipulateNumJFrame MNJFrame = new ManipulateNumJFrame();
+        MNJFrame.setVisible(true);
+    }
 
     public static int getLCD(int input1, int input2, int input3) {
         int returnval = 0, maxval;
