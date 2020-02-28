@@ -20,12 +20,14 @@ public class TestClient {
     public static void main(String[] args) {
         try {
             Socket clientSocket = new Socket("localhost", 8989);
-            out.println("connected with server !");                       
+            out.println("connected with server !");
+            out.print(">> ");
+            BufferedReader getInput = new BufferedReader(new InputStreamReader(System.in));
             OutputStream outStream = clientSocket.getOutputStream();
-            PrintWriter printWrite = new PrintWriter(outStream, true);
             
-            BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
-            String readLine = bReader.readLine();
+            PrintWriter toServer = new PrintWriter(outStream, true);
+            toServer.println("client: " + getInput.readLine());
+//            toServer.print(getInput.readLine());
 
         } catch (IOException ex) {
             Logger.getLogger(TestClient.class.getName()).log(Level.SEVERE, null, ex);
