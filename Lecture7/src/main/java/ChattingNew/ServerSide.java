@@ -22,11 +22,11 @@ public class ServerSide {
             out.println("Server Ready !");
             Socket S = SS.accept();
             out.println("Client Connected !");            
-            BufferedReader readclient = new BufferedReader(new InputStreamReader(System.in));
+//            BufferedReader readclient = new BufferedReader(new InputStreamReader(System.in));
 //            OutputStream outPrint = S.getOutputStream();
 //            PrintWriter getPrint = new PrintWriter(outPrint, true);
             
-            out.println(readclient.readLine());
+            out.println(S.getInputStream());
             
         } catch (IOException ex) {
             Logger.getLogger(ServerSide.class.getName()).log(Level.SEVERE, null, ex);

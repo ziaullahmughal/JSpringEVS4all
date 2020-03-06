@@ -9,11 +9,6 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
-/**
- * This is the chat server program. Press Ctrl + C to terminate the program.
- *
- * @author www.codejava.net
- */
 public class ChatServer {
 
     private int port;
