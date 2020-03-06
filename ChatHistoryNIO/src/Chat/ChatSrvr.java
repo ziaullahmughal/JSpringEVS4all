@@ -1,4 +1,3 @@
-
 package Chat;
 
 import java.io.*;
@@ -6,6 +5,9 @@ import java.net.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,6 +18,8 @@ import java.util.logging.Logger;
 public class ChatSrvr {
 
     public static void main(String[] args) {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
         String Msg = ": : : Server with Saved Chat History : : :";
         int port = 8989;
         try {
@@ -29,11 +33,12 @@ public class ChatSrvr {
                 InputStream iStream = Skt.getInputStream();
                 BufferedReader bfr = new BufferedReader(new InputStreamReader(iStream));
                 String ClntMsg = bfr.readLine();
-                if (ClntMsg.isEmpty()) {
+                if ((ClntMsg.isEmpty()) || (ClntMsg.equals("E"))) {
                     break;
                 }
                 System.out.println(ClntMsg);
-                Msg = Msg + "\r\nClient> " + ClntMsg;                
+                Date dt = new Date();
+                Msg = Msg + "\r\n" + dateFormat.format(dt) + "> " + ClntMsg;
             }
         } catch (IOException ex) {
             Logger.getLogger(ChatSrvr.class.getName()).log(Level.SEVERE, null, ex);
